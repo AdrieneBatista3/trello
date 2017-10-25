@@ -20,7 +20,7 @@
             <li><%= link_to 'Editar Profile', edit_user_registration_path %></li>
             <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
         <% else %>
-            <li><%= link_to 'Sobre', sobre_path %></li>
+            <li><%= link_to 'Sobre', about_path %></li>
             <li><%= link_to 'Login', new_user_session_path %></li>
         <% end %>
         
