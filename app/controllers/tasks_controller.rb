@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy, :change]
-   before_action :authenticate_user!
+  before_action :authenticate_user!
   # GET /tasks
   # GET /tasks.json
   def index
@@ -27,7 +27,6 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = current_user.tasks.new(task_params)
-    
 
     respond_to do |format|
       if @task.save
@@ -53,16 +52,14 @@ class TasksController < ApplicationController
       end
     end
   end
-
+  
   def change
-  @task.update_attributes(state: params[:state])
-  respond_to do |format|
-  format.html{redirect_to tasks_path, notice: "Task status successfuly changed"}
-     end
-end
-  
-  
-  
+    @task.update_attributes(state: params[:state])
+    respond_to do |format|
+    format.html {redirect_to tasks_path, notice: "Task status successfuly changed"}
+    end
+  end
+
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
